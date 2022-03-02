@@ -1,5 +1,5 @@
 import React from 'react'
-import { View, Text, Platform, StyleSheet } from 'react-native';
+import { View, Text, Platform, StyleSheet, SafeAreaView } from 'react-native';
 import { createBottomTabNavigator, useBottomTabBarHeight } from '@react-navigation/bottom-tabs';
 import HomeScreen from './HomeScreen';
 import SearchScreen from './SearchScreen';
@@ -18,11 +18,12 @@ const Drawer = createDrawerNavigator();
 
 function CustomDrawerContent(props) {
   return (
-    <DrawerContentScrollView {...props}>
-      
-      <DrawerItem icon={() => <MaterialCommunityIcons name="spotify" size={42} color="#fff" />} label="Spotify" labelStyle={{fontSize: 24, fontWeight: 'bold', color: '#fff'}} />
-      <DrawerItemList {...props} />
-    </DrawerContentScrollView>
+    <SafeAreaView style={{flex: 1, backgroundColor: '#121212'}}>
+      <DrawerContentScrollView {...props}>
+        <DrawerItem icon={() => <MaterialCommunityIcons name="spotify" size={42} color="#fff" />} label="Spotify" labelStyle={{fontSize: 24, fontWeight: 'bold', color: '#fff'}} />
+        <DrawerItemList {...props} />
+      </DrawerContentScrollView>
+    </SafeAreaView>
   );
 }
 

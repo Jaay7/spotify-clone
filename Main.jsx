@@ -4,17 +4,20 @@ import React from 'react';
 import { StyleSheet } from 'react-native';
 import HomeScreen from './Components/BottomTabs/HomeScreen';
 import LoginScreen from './Components/LoginScreen';
-import SignupScreen from './Components/Signup/SignupScreen';
+import AddEmailScreen from './Components/Signup/AddEmailScreen';
 import LandingScreen from './Components/LandingScreen';
 import DashboardScreen from './Components/BottomTabs/DashboardScreen';
 import 'react-native-gesture-handler';
+import AddDOBScreen from './Components/Signup/AddDOBScreen';
+import AddGender from './Components/Signup/AddGender';
+import SignupScreen from './Components/Signup/SignupScreen';
 
 const Stack = createNativeStackNavigator();
 
-const Main = () => {
+const Main = ({navigation}) => {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="Dashboard">
+      <Stack.Navigator initialRouteName="Landing">
       <Stack.Screen
           name="Landing"
           component={LandingScreen}
@@ -23,6 +26,21 @@ const Main = () => {
         <Stack.Screen
           name="Login"
           component={LoginScreen}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="AddEmail"
+          component={AddEmailScreen}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="DOB"
+          component={AddDOBScreen}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="Gender"
+          component={AddGender}
           options={{ headerShown: false }}
         />
         <Stack.Screen
